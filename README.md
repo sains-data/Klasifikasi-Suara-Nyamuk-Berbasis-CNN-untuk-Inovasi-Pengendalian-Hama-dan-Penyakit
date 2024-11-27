@@ -3,5 +3,4 @@ Projek ini untuk mengklasifikasi suara nyamuk berdasarkan spesies (Aedes Aegypti
 
 
 # Dataset 
-
 Dataset yang digunakan untuk proyek ini dapat diakses melalui [sumber](https://drive.google.com/drive/folders/109Spn_kf2DCFK1Xqb1f9K2w70kUPVaAj?usp=sharing )
