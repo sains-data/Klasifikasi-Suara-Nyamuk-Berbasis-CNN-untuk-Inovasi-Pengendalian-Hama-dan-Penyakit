@@ -119,12 +119,12 @@ elif(app_node == "About Project"):
         
         ### About Team
         The team behind this project consists of the following members:
+        - Ignatius Krisna Issaputra (121140037)
         - Ardoni Yeriko Rifana Gultom (121140141)
-        - 
-        - 
-        - 
-        - 
-        -
+        - Rika Ajeng Finatih (121450036)
+        - M. Gilang Martiansyah (121450056)
+        - Sasa Rahma Lia (121450119)
+        - Nazwa Nabila (121450122)Ardoni Yeriko Rifana Gultom (121140141)
     """)
 
 # Prediction page
