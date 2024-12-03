@@ -28,34 +28,33 @@ Dataset yang digunakan untuk proyek ini berisi rekaman audio nyamuk dalam format
 ### 1. **Python** 🐍
 Bahasa pemrograman utama yang digunakan untuk mengembangkan model, memproses data, dan membangun aplikasi prediksi suara nyamuk.
 
-![Python](https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg)
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="150"/>
 
 ### 2. **TensorFlow/Keras** 🧠
 TensorFlow adalah framework open-source yang digunakan untuk membangun dan melatih model deep learning, sementara Keras adalah API tingkat tinggi yang menyediakan antarmuka yang lebih sederhana untuk pengembangan model.
 
-![TensorFlow](https://media.wired.com/photos/5927105acfe0d93c474323d7/master/pass/google-tensor-flow-logo-black-S.jpg)
-
+<img src="https://media.wired.com/photos/5927105acfe0d93c474323d7/master/pass/google-tensor-flow-logo-black-S.jpg" width="150"/>
 
 ### 3. **Librosa** 🎶
 Librosa adalah pustaka Python yang digunakan untuk analisis dan ekstraksi fitur audio, seperti Mel-Frequency Cepstral Coefficients (MFCC) yang digunakan untuk mengolah data suara nyamuk dalam proyek ini.
 
-![Librosa](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiDgm71NRUOVsiA_rTGi8lsIZmO1rlYt4cw&s)
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiDgm71NRUOVsiA_rTGi8lsIZmO1rlYt4cw&s" width="150"/>
 
 ### 4. **Adobe Audition** 🎧
 Adobe Audition adalah perangkat lunak pengolahan audio yang digunakan dalam proyek ini untuk membersihkan noise dan melakukan preprocessing audio sebelum ekstraksi fitur. Ini membantu memastikan data audio berkualitas tinggi.
 
-![Adobe Audition](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Adobe_Audition_CC_icon_%282020%29.svg/800px-Adobe_Audition_CC_icon_%282020%29.svg.png)
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Adobe_Audition_CC_icon_%282020%29.svg/800px-Adobe_Audition_CC_icon_%282020%29.svg.png" width="150"/>
 
 ### 5. **Streamlit** 🌐
 Digunakan untuk membuat aplikasi web interaktif, yang memungkinkan pengguna untuk mengunggah suara dan mendapatkan prediksi spesies nyamuk secara langsung.
 
-![Streamlit](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1IS9rNAuZkFawNTS7W3dgsNcuOjNfh9imKQ&s)
-
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1IS9rNAuZkFawNTS7W3dgsNcuOjNfh9imKQ&s" width="150"/>
 
 ### 6. **Matplotlib & Seaborn** 📊
 Digunakan untuk visualisasi data dan evaluasi kinerja model dengan grafik dan plot yang mudah dipahami.
 
-![Matplotlib](https://matplotlib.org/stable/_static/logo2.svg)
+<img src="https://matplotlib.org/stable/_static/logo2.svg" width="150"/>
+  
 ## 🧠 Model CNN _(Convolutional Neural Network)_
 Arsitektur CNN dirancang untuk memproses spektrum audio dari suara nyamuk, memungkinkan klasifikasi spesies dengan akurasi tinggi. Model dilatih menggunakan teknik augmentasi data dan regularisasi untuk meningkatkan performa dan mencegah overfitting.
 
