@@ -16,20 +16,46 @@ Mengembangkan sistem klasifikasi suara nyamuk secara otomatis untuk mendeteksi s
 * 🦟 _Aedes aegypti_ (vektor demam berdarah)
 * 🦟 _Anopheles stephensi_ (vektor malaria)
 * 🦟 _Culex pipiens_ (vektor filariasis)
+  
+Dengan identifikasi spesies nyamuk secara akurat, diharapkan dapat mengurangi dampak dari penyakit-penyakit tersebut dan membantu pemerintah dalam pengendalian hama.
 
-## 📂Dataset 
-Dataset yang digunakan untuk proyek ini dapat diakses melalui sumber berikut:
-```
-[Dataset Suara Nyamuk](https://drive.google.com/drive/folders/109Spn_kf2DCFK1Xqb1f9K2w70kUPVaAj?usp=sharing )
-```
-Dataset mencakup rekaman audio nyamuk dalam format **.wav** serta label spesies dalam file **.csv**.
+
+# 📂 Dataset
+Dataset yang digunakan untuk proyek ini berisi rekaman audio nyamuk dalam format **.wav** dan label spesies dalam file **.csv**. Dataset ini mencakup suara dari tiga spesies nyamuk yang disebutkan di atas dan telah melalui tahap preprocessing untuk ekstraksi fitur.
+[Dataset Suara Nyamuk](https://drive.google.com/drive/folders/109Spn_kf2DCFK1Xqb1f9K2w70kUPVaAj?usp=sharing)
 
 ## 🛠️ Teknologi yang Digunakan
-* **Pyhton**
-* **TensorFlow/Keras** untuk model CNN
-* **Librosa** untuk ekstraksi fitur audio
-* **Matplotlib** dan **Seaborn** untuk visualisasi data
+### 1. **Python** 🐍
+Bahasa pemrograman utama yang digunakan untuk mengembangkan model, memproses data, dan membangun aplikasi prediksi suara nyamuk.
 
+![Python](https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg)
+
+### 2. **TensorFlow/Keras** 🧠
+TensorFlow adalah framework open-source yang digunakan untuk membangun dan melatih model deep learning, sementara Keras adalah API tingkat tinggi yang menyediakan antarmuka yang lebih sederhana untuk pengembangan model.
+
+![TensorFlow](https://media.wired.com/photos/5927105acfe0d93c474323d7/master/pass/google-tensor-flow-logo-black-S.jpg)
+
+
+### 3. **Librosa** 🎶
+Librosa adalah pustaka Python yang digunakan untuk analisis dan ekstraksi fitur audio, seperti Mel-Frequency Cepstral Coefficients (MFCC) yang digunakan untuk mengolah data suara nyamuk dalam proyek ini.
+
+![Librosa](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiDgm71NRUOVsiA_rTGi8lsIZmO1rlYt4cw&s)
+
+### 4. **Adobe Audition** 🎧
+Adobe Audition adalah perangkat lunak pengolahan audio yang digunakan dalam proyek ini untuk membersihkan noise dan melakukan preprocessing audio sebelum ekstraksi fitur. Ini membantu memastikan data audio berkualitas tinggi.
+
+![Adobe Audition](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Adobe_Audition_CC_icon_%282020%29.svg/800px-Adobe_Audition_CC_icon_%282020%29.svg.png)
+
+### 5. **Streamlit** 🌐
+Digunakan untuk membuat aplikasi web interaktif, yang memungkinkan pengguna untuk mengunggah suara dan mendapatkan prediksi spesies nyamuk secara langsung.
+
+![Streamlit](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1IS9rNAuZkFawNTS7W3dgsNcuOjNfh9imKQ&s)
+
+
+### 6. **Matplotlib & Seaborn** 📊
+Digunakan untuk visualisasi data dan evaluasi kinerja model dengan grafik dan plot yang mudah dipahami.
+
+![Matplotlib](https://matplotlib.org/stable/_static/logo2.svg)
 ## 🧠 Model CNN _(Convolutional Neural Network)_
 Arsitektur CNN dirancang untuk memproses spektrum audio dari suara nyamuk, memungkinkan klasifikasi spesies dengan akurasi tinggi. Model dilatih menggunakan teknik augmentasi data dan regularisasi untuk meningkatkan performa dan mencegah overfitting.
 
@@ -38,12 +64,13 @@ Arsitektur CNN dirancang untuk memproses spektrum audio dari suara nyamuk, memun
 2. **Pelatihan Model**: Model CNN dilatih untuk mengklasifikasikan suara nyamuk.
 3. **Evaluasi Model**: Menggunakan metrik seperti akurasi, precision, recall, dan F1-score.
    
-## 📈 Hasil yang diharapkan
-* Akurasi klasifikasi ≥ 75%.
-* Sistem real-time dengan waktu prediksi ≤ 1 detik.
-* Sensitivitas deteksi spesies nyamuk ≥ 80%.
+## 🏆 **Hasil yang Diharapkan**
+Kami berharap dapat mencapai:
+- **Akurasi klasifikasi ≥ 75%** untuk semua spesies nyamuk.
+- Waktu prediksi sistem **< 1 detik** untuk identifikasi suara nyamuk.
+- **Sensitivitas ≥ 80%** untuk deteksi spesies nyamuk yang relevan.
 
-## Flowchart 
+## 📡 Flowchart Proses
 ![Deskripsi Gambar](https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/flowchart%20.png)
 
 
@@ -84,5 +111,31 @@ Jika ada pertanyaan, silakan hubungi:
   - sasa.121450119@student.itera.ac.id
   - nazwa.121450122@student.itera.ac.id
 
+
+## 🙏 Ucapan Terima Kasih
+Kami ingin mengucapkan terima kasih yang sebesar-besarnya kepada:
+
+1. **Dosen Pembimbing**:
+   - Bapak Ardika Satria, S.Si. M.Si yang telah memberikan bimbingan, arahan, dan dukungan yang sangat berharga selama pengerjaan proyek ini. Terima kasih atas saran-saran yang membantu kami dalam mengembangkan ide dan implementasi sistem ini.
+
+2. **Anggota Kelompok**:
+   - **Ardoni Yeriko Rifana Gultom**:  Terima kasih atas kerja keras dalam mengembangkan model CNN dan kontribusinya dalam preprocessing data audio dan terimakasih atas  optimasi model sangat membantu kami mencapai hasil yang lebih baik.
+   - **M. Gilang Martiansyah**: Terima kasih atas kontribusinya dalam pembuatan aplikasi prediksi menggunakan Streamlit, implementasi pipeline data, serta analisis dan evaluasi model dan juga berperan penting dalam proses debugging.
+   - **Rika Ajeng Finatih**: Terima kasih atas dedikasinya dalam memimpin proyek, serta perannya dalam pembuatan laporan dan dokumentasi. Rika juga sangat membantu dalam menyusun strategi pengembangan proyek.
+   - **Ignatius Krisna Issaputra**: Terima kasih atas kerja kerasnya dalam pemrosesan audio, terutama dalam ekstraksi fitur audio menggunakan MFCC dan Mel Spectrogram. Krisna juga banyak berkontribusi dalam pengembangan model CNN untuk klasifikasi suara nyamuk.
+   - **Sasa Rahma Lia**: Terima kasih atas kontribusinya dalam pembuatan laporan, serta bantuan dalam menyusun dan merapikan dokumentasi teknis proyek terimakasih juga atas   merapihkan organisir notion.
+   - **Nazwa Nabila**: Terima kasih atas kontribusinya dalam pembuatan laporan serta dukungan dalam dokumentasi dan pengujian sistem.
+
+Kami sangat mengapresiasi setiap kontribusi yang diberikan oleh setiap anggota tim. Tanpa kerjasama yang solid, proyek ini tidak akan tercapai dengan baik.
+
+---
+
+## 📑 Referensi
+Daftar referensi yang digunakan dalam pengerjaan proyek ini:
 ## 🔗 Tautan Kelompok 1
 Kunjungi Notion Kami: [Notion](https://aquamarine-dove-b45.notion.site/Team-1-Proyek-Tugas-Besar-Deep-Learning-133607a60e95805294dada205aea761d)
+1. [Referensi 1](https://...)
+2. [Referensi 2](https://...)
+3. [Referensi 3](https://...)
+
+# **#DeepLearning #CNN #Classification #Malaria #Dengue #DiseasesControl**
