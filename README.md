@@ -1,6 +1,8 @@
 # Team [1] _Deep Learning_ - Klasifikasi Suara Nyamuk Berbasis CNN untuk Inovasi Pengendalian Hama dan Penyakit
 Proyek ini dikembangkan oleh **Team-1** dari kelas **_Deep Learning_** tahun **2024**. Tujuan utama proyek ini adalah mengklasifikasikan suara nyamuk berdasarkan spesies menggunakan **_Convolutional Neural Network_ (CNN)** untuk mendukung inovasi dalam pengendalian hama dan penyakit.
 
+![Gambar Nyamuk](https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo0.jpg)
+
 ## 📌 Anggota Kelompok
 1. Ignatius Krisna Issaputra (121140037)
 2. Ardoni Yeriko Rifana Gultom (121140141)
@@ -65,7 +67,7 @@ Arsitektur CNN dirancang untuk memproses spektrum audio dari suara nyamuk, memun
 * Rika Ajeng Finatih - [Github](https://github.com/rika623)
 * M. Gilang Martiansyah - [Github](https://github.com/mgilang56)
 * Sasa Rahma Lia - [Github](https://github.com/sasarahmalia)
-* Nazwa Nabila - [Github](https://github.com/)
+* Nazwa Nabila - [Github](https://github.com/nazwanabila)
 
 ## 📫 Kontak
 Jika ada pertanyaan, silakan hubungi:
