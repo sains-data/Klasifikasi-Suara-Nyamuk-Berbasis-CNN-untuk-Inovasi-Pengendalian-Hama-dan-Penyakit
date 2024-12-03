@@ -44,6 +44,8 @@ Arsitektur CNN dirancang untuk memproses spektrum audio dari suara nyamuk, memun
 * Sensitivitas deteksi spesies nyamuk ≥ 80%.
 
 ## Flowchart 
+![Deskripsi Gambar](https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/flowchart%20.png)
+
 
 ## 🧑‍💻 Cara Menjalankan Proyek
 1. **Clone repositori**:
