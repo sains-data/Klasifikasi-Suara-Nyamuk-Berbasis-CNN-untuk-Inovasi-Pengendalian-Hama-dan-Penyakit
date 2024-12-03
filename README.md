@@ -74,14 +74,13 @@ Arsitektur CNN dirancang untuk memproses spektrum audio dari suara nyamuk, memun
 ## 📫 Kontak
 Jika ada pertanyaan, silakan hubungi:
 
-✉️Email: 
-ignatius.121140037@@student.itera.ac.id
-ardoni.121140141@student.itera.ac.id
-rika.121450036@student.itera.ac.id
-mgilang.121450056@student.itera.ac.id
-sasa.121450119@student.itera.ac.id
-nazwa.121450122@student.itera.ac.id
+- ✉️ **Email:**
+  - ignatius.121140037@student.itera.ac.id
+  - ardoni.121140141@student.itera.ac.id
+  - rika.121450036@student.itera.ac.id
+  - mgilang.121450056@student.itera.ac.id
+  - sasa.121450119@student.itera.ac.id
+  - nazwa.121450122@student.itera.ac.id
 
-
-## Tautan Kelompok 1
-Kunjungi Notion Kami: [Notion]([https://organized-mandolin-c9d.notion.site/Deep-Learning-Kelompok-19-13232a2311c2809890ebca611ae2339b](https://aquamarine-dove-b45.notion.site/Team-1-Proyek-Tugas-Besar-Deep-Learning-133607a60e95805294dada205aea761d)
+## 🔗 Tautan Kelompok 1
+Kunjungi Notion Kami: [Notion](https://aquamarine-dove-b45.notion.site/Team-1-Proyek-Tugas-Besar-Deep-Learning-133607a60e95805294dada205aea761d)
