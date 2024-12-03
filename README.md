@@ -116,6 +116,8 @@ Kami ingin mengucapkan terima kasih yang sebesar-besarnya kepada:
 
 1. **Dosen Pembimbing**:
    - Bapak Ardika Satria, S.Si. M.Si yang telah memberikan bimbingan, arahan, dan dukungan yang sangat berharga selama pengerjaan proyek ini. Terima kasih atas saran-saran yang membantu kami dalam mengembangkan ide dan implementasi sistem ini.
+   - Christyan Tamaro Nadeak, M.Si selaku dosen pengampu mata kuliah Deep Learning.
+   - Ade Lailani, M.Si selaku dosen pengampu mata kuliah   Deep Learning.
 
 2. **Anggota Kelompok**:
    - **Ardoni Yeriko Rifana Gultom**:  Terima kasih atas kerja keras dalam mengembangkan model CNN dan kontribusinya dalam preprocessing data audio dan terimakasih atas  optimasi model sangat membantu kami mencapai hasil yang lebih baik.
