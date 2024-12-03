@@ -1,7 +1,5 @@
 # Team [1] _Deep Learning_ - Klasifikasi Suara Nyamuk Berbasis CNN untuk Inovasi Pengendalian Hama dan Penyakit
-Proyek ini dikembangkan oleh Team-1 dari kelas Deep Learning tahun 2024. Tujuan utamanya adalah mengklasifikasikan suara kepakan sayap nyamuk berdasarkan spesies menggunakan model Convolutional Neural Network (CNN) untuk mendukung inovasi dalam pengendalian hama dan penyakit di wilayah tropis, khususnya di Indonesia. Proyek ini berfokus pada tiga spesies nyamuk utama: Aedes aegypti, Anopheles stephensi, dan Culex pipiens.
-
-Melalui proyek ini, diharapkan dapat mendukung upaya pemerintah dalam mencapai target eliminasi malaria dan filariasis pada tahun 2030 serta mengurangi insiden demam berdarah dengue (DBD) hingga di bawah 49 kasus per 100.000 jiwa.
+Proyek ini dikembangkan oleh Team-1 dari kelas Deep Learning tahun 2024. Tujuan utamanya adalah mengklasifikasikan suara kepakan sayap nyamuk berdasarkan spesies menggunakan model Convolutional Neural Network (CNN) untuk mendukung inovasi dalam pengendalian hama dan penyakit di wilayah tropis, khususnya di Indonesia. Proyek ini berfokus pada tiga spesies nyamuk utama: Aedes aegypti, Anopheles stephensi, dan Culex pipiens. Melalui proyek ini, diharapkan dapat mendukung upaya pemerintah dalam mencapai target eliminasi malaria dan filariasis pada tahun 2030 serta mengurangi insiden demam berdarah dengue (DBD) hingga di bawah 49 kasus per 100.000 jiwa.
 
 ![Gambar Nyamuk](https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo0.jpg)
 
