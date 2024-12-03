@@ -133,6 +133,9 @@ Kami sangat mengapresiasi setiap kontribusi yang diberikan oleh setiap anggota t
 Daftar referensi yang digunakan dalam pengerjaan proyek ini:
 ## 🔗 Tautan Kelompok 1
 Kunjungi Notion Kami: [Notion](https://aquamarine-dove-b45.notion.site/Team-1-Proyek-Tugas-Besar-Deep-Learning-133607a60e95805294dada205aea761d)
+## 🎥 Demo Video
+Tonton video berikut untuk melihat cara aplikasi ini bekerja: [in progress(https://www.youtube.com/watch?v=XXXXXXX)
+
 1. [Referensi 1](https://...)
 2. [Referensi 2](https://...)
 3. [Referensi 3](https://...)
