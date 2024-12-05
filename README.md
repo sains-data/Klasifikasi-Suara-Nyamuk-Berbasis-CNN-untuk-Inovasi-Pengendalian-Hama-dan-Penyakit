@@ -124,7 +124,7 @@ Kami ingin mengucapkan terima kasih yang sebesar-besarnya kepada:
 2. **Anggota Kelompok**:
    - **Ardoni Yeriko Rifana Gultom**:  Terima kasih atas kerja keras dalam mengembangkan model CNN dan kontribusinya dalam preprocessing data audio dan terimakasih atas  optimasi model sangat membantu kami mencapai hasil yang lebih baik.
    - **M. Gilang Martiansyah**: Terima kasih atas kontribusinya dalam pembuatan aplikasi prediksi menggunakan Streamlit, implementasi pipeline data, serta analisis dan evaluasi model dan juga berperan penting dalam proses debugging.
-   - **Rika Ajeng Finatih**: Terima kasih atas dedikasinya dalam memimpin proyek, serta perannya dalam pembuatan laporan dan dokumentasi. Rika juga sangat membantu dalam menyusun strategi pengembangan proyek.
+   - **Rika Ajeng Finatih**: Terima kasih atas dedikasinya dalam memimpin proyek, serta perannya dalam pembuatan laporan dan dokumentasi.
    - **Ignatius Krisna Issaputra**: Terima kasih atas kerja kerasnya dalam pemrosesan audio, terutama dalam ekstraksi fitur audio menggunakan MFCC dan Mel Spectrogram. Krisna juga banyak berkontribusi dalam pengembangan model CNN untuk klasifikasi suara nyamuk.
    - **Sasa Rahma Lia**: Terima kasih atas kontribusinya dalam pembuatan laporan, serta bantuan dalam menyusun dan merapikan dokumentasi teknis proyek terimakasih juga atas   merapihkan organisir notion.
    - **Nazwa Nabila**: Terima kasih atas kontribusinya dalam pembuatan laporan serta dukungan dalam dokumentasi dan pengujian sistem.
