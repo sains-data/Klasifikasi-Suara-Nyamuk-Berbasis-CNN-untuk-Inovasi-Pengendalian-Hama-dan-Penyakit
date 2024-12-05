@@ -9,7 +9,7 @@ Proyek ini dikembangkan oleh Team-1 dari kelas Deep Learning tahun 2024. Tujuan 
 3. Rika Ajeng Finatih (121450036)
 4. M. Gilang Martiansyah (121450056)
 5. Sasa Rahma Lia (121450119)
-6. Nazwa Nabila (121450122)
+6. Nazwa Nabilla (121450122)
 
 ## 🚀 Tujuan Proyek
 Mengembangkan sistem klasifikasi suara nyamuk secara otomatis untuk mendeteksi spesies seperti:
@@ -97,7 +97,7 @@ Kami berharap dapat mencapai:
 * Rika Ajeng Finatih - [Github](https://github.com/rika623)
 * M. Gilang Martiansyah - [Github](https://github.com/mgilang56)
 * Sasa Rahma Lia - [Github](https://github.com/sasarahmalia)
-* Nazwa Nabila - [Github](https://github.com/nazwanabila)
+* Nazwa Nabilla - [Github](https://github.com/nazwanabila)
 
 ## 📫 Kontak
 Jika ada pertanyaan, silakan hubungi:
