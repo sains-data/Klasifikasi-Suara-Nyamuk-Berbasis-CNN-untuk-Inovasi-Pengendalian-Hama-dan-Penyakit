@@ -40,6 +40,11 @@ Dataset yang digunakan mencakup:
 
 **🔗 [Download Dataset](https://drive.google.com/drive/folders/109Spn_kf2DCFK1Xqb1f9K2w70kUPVaAj?usp=sharing)**
 
+### **Pengolahan Data:**
+1. Audio difilter untuk menghilangkan noise.
+2. Fitur diekstraksi menggunakan **MFCC** dan **Mel Spectrogram**.
+3. Data di-augmentasi untuk meningkatkan generalisasi model.
+
 ---
 
 ## 🛠️ **Teknologi yang Digunakan**
@@ -118,14 +123,14 @@ Jika ada pertanyaan, silakan hubungi:
 ## 🙏 Ucapan Terima Kasih
 Kami ingin mengucapkan terima kasih yang sebesar-besarnya kepada:
 
-1. **Dosen Pembimbing**:
-   - Bapak Ardika Satria, S.Si. M.Si yang telah memberikan bimbingan, arahan, dan dukungan yang sangat berharga selama pengerjaan proyek ini. Terima kasih atas saran-saran yang membantu kami dalam mengembangkan ide dan implementasi sistem ini
+### **1. Dosen Pembimbing**
+- **Bapak Ardika Satria, S.Si., M.Si.** yang telah memberikan bimbingan, arahan, dan dukungan yang sangat berharga selama pengerjaan proyek ini. Terima kasih atas saran-saran yang membantu kami dalam mengembangkan ide dan implementasi sistem ini
   
-  **Dosen Matakuliah**:
-   - Bapak Christyan Tamaro Nadeak, M.Si selaku dosen pengampu mata kuliah Deep Learning.
-   - ibu Ade Lailani, M.Si selaku dosen pengampu mata kuliah   Deep Learning.
+### **2. Dosen Mata Kuliah**
+- **Bapak Christyan Tamaro Nadeak, M.Si**: Atas ilmu yang diberikan dalam mata kuliah Deep Learning.
+- **Ibu Ade Lailani, M.Si**: Atas kontribusi dalam pengajaran konsep-konsep dasar yang mendukung proyek ini.
 
-2. **Anggota Kelompok**:
+### **3. Anggota Kelompok**
    - **Ardoni Yeriko Rifana Gultom**:  Terima kasih atas kerja keras dalam mengembangkan model CNN dan kontribusinya dalam preprocessing data audio dan terimakasih atas  optimasi model sangat membantu kami mencapai hasil yang lebih baik.
    - **M. Gilang Martiansyah**: Terima kasih atas kontribusinya dalam pembuatan aplikasi prediksi menggunakan Streamlit, implementasi pipeline data, serta analisis dan evaluasi model dan juga berperan penting dalam proses debugging.
    - **Rika Ajeng Finatih**: Terima kasih atas dedikasinya dalam memimpin proyek, serta perannya dalam pembuatan laporan dan dokumentasi.
