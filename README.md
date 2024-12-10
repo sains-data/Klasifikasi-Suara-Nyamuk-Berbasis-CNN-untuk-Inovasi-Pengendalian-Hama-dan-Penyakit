@@ -1,59 +1,58 @@
-# Team [1] _Deep Learning_ - Klasifikasi Suara Nyamuk Berbasis CNN untuk Inovasi Pengendalian Hama dan Penyakit
-Proyek ini dikembangkan oleh Team-1 dari kelas Deep Learning tahun 2024. Tujuan utamanya adalah mengklasifikasikan suara kepakan sayap nyamuk berdasarkan spesies menggunakan model Convolutional Neural Network (CNN) untuk mendukung inovasi dalam pengendalian hama dan penyakit di wilayah tropis, khususnya di Indonesia. Proyek ini berfokus pada tiga spesies nyamuk utama: Aedes aegypti, Anopheles stephensi, dan Culex pipiens. Melalui proyek ini, diharapkan dapat mendukung upaya pemerintah dalam mencapai target eliminasi malaria dan filariasis pada tahun 2030 serta mengurangi insiden demam berdarah dengue (DBD) hingga di bawah 49 kasus per 100.000 jiwa.
+# 🌟 **Team 1: Deep Learning** - Klasifikasi Suara Nyamuk Berbasis CNN untuk Inovasi Pengendalian Hama dan Penyakit
 
-![Gambar Nyamuk](https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo0.jpg)
+Proyek ini dikembangkan oleh **Team-1** dari kelas **Deep Learning 2024**. Tujuan utamanya adalah mengklasifikasikan suara kepakan sayap nyamuk berdasarkan spesies menggunakan model **Convolutional Neural Network (CNN)** untuk mendukung inovasi dalam pengendalian hama dan penyakit di wilayah tropis, khususnya di Indonesia.
 
-## 📌 Anggota Kelompok
-1. Ignatius Krisna Issaputra (121140037)
-2. Ardoni Yeriko Rifana Gultom (121140141)
-3. Rika Ajeng Finatih (121450036)
-4. M. Gilang Martiansyah (121450056)
-5. Sasa Rahma Lia (121450119)
-6. Nazwa Nabilla (121450122)
+## 🎯 **Fokus Proyek**
+- **Spesies yang Diklasifikasi:**
+  - 🦟 **_Aedes aegypti_** (vektor demam berdarah dengue)
+  - 🦟 **_Anopheles stephensi_** (vektor malaria)
+  - 🦟 **_Culex pipiens_** (vektor filariasis)
 
-## 🚀 Tujuan Proyek
-Mengembangkan sistem klasifikasi suara nyamuk secara otomatis untuk mendeteksi spesies seperti:
-* 🦟 _Aedes aegypti_ (vektor demam berdarah)
-* 🦟 _Anopheles stephensi_ (vektor malaria)
-* 🦟 _Culex pipiens_ (vektor filariasis)
-  
-Dengan identifikasi spesies nyamuk secara akurat, diharapkan dapat mengurangi dampak dari penyakit-penyakit tersebut dan membantu pemerintah dalam pengendalian hama.
+Proyek ini diharapkan mendukung **upaya pemerintah** dalam mencapai target:
+- **Eliminasi malaria dan filariasis pada tahun 2030**
+- **Pengurangan insiden demam berdarah dengue (DBD)** hingga di bawah **49 kasus per 100.000 jiwa**.
+
+![🦟 Gambar Nyamuk](https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo0.jpg)
+
+---
+
+## 👥 **Anggota Kelompok**
+1. **Ignatius Krisna Issaputra** (121140037)  
+2. **Ardoni Yeriko Rifana Gultom** (121140141)  
+3. **Rika Ajeng Finatih** (121450036)  
+4. **M. Gilang Martiansyah** (121450056)  
+5. **Sasa Rahma Lia** (121450119)  
+6. **Nazwa Nabilla** (121450122)  
+
+---
+
+## 🚀 **Tujuan Proyek**
+- Mengembangkan sistem klasifikasi suara nyamuk otomatis untuk mendeteksi spesies nyamuk.
+- Mendukung inovasi pengendalian hama dan penyakit tropis dengan teknologi berbasis AI.
 
 
-# 📂 Dataset
-Dataset yang digunakan untuk proyek ini berisi rekaman audio nyamuk dalam format **.wav** dan label spesies dalam file **.csv**. Dataset ini mencakup suara dari tiga spesies nyamuk yang disebutkan di atas dan telah melalui tahap preprocessing untuk ekstraksi fitur.
-[Dataset Suara Nyamuk](https://drive.google.com/drive/folders/109Spn_kf2DCFK1Xqb1f9K2w70kUPVaAj?usp=sharing)
+---
 
-## 🛠️ Teknologi yang Digunakan
-### 1. **Python** 🐍
-Bahasa pemrograman utama yang digunakan untuk mengembangkan model, memproses data, dan membangun aplikasi prediksi suara nyamuk.
+## 📂 **Dataset**
+Dataset yang digunakan mencakup:
+- **Rekaman audio nyamuk** dalam format **.wav**
+- **Label spesies** dalam file **.csv**.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="150"/>
+**🔗 [Download Dataset](https://drive.google.com/drive/folders/109Spn_kf2DCFK1Xqb1f9K2w70kUPVaAj?usp=sharing)**
 
-### 2. **TensorFlow/Keras** 🧠
-TensorFlow adalah framework open-source yang digunakan untuk membangun dan melatih model deep learning, sementara Keras adalah API tingkat tinggi yang menyediakan antarmuka yang lebih sederhana untuk pengembangan model.
+---
 
-<img src="https://media.wired.com/photos/5927105acfe0d93c474323d7/master/pass/google-tensor-flow-logo-black-S.jpg" width="150"/>
+## 🛠️ **Teknologi yang Digunakan**
+| Teknologi          | Deskripsi                                                                 |
+|--------------------|---------------------------------------------------------------------------|
+| <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="80"> | **Python**: Bahasa pemrograman utama untuk pemrosesan data dan pengembangan model. |
+| <img src="https://media.wired.com/photos/5927105acfe0d93c474323d7/master/pass/google-tensor-flow-logo-black-S.jpg" width="80"> | **TensorFlow/Keras**: Framework untuk membangun dan melatih model deep learning. |
+| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiDgm71NRUOVsiA_rTGi8lsIZmO1rlYt4cw&s" width="80"> | **Librosa**: Pustaka untuk analisis dan ekstraksi fitur audio (MFCC, Mel Spectrogram). |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Adobe_Audition_CC_icon_%282020%29.svg/800px-Adobe_Audition_CC_icon_%282020%29.svg.png" width="80"> | **Adobe Audition**: Untuk preprocessing audio dan pembersihan noise. |
+| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1IS9rNAuZkFawNTS7W3dgsNcuOjNfh9imKQ&s" width="80"> | **Streamlit**: Framework untuk membuat aplikasi web interaktif. |
+| <img src="https://matplotlib.org/stable/_static/logo2.svg" width="80"> | **Matplotlib & Seaborn**: Untuk visualisasi data dan evaluasi kinerja model. |
 
-### 3. **Librosa** 🎶
-Librosa adalah pustaka Python yang digunakan untuk analisis dan ekstraksi fitur audio, seperti Mel-Frequency Cepstral Coefficients (MFCC) yang digunakan untuk mengolah data suara nyamuk dalam proyek ini.
-
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiDgm71NRUOVsiA_rTGi8lsIZmO1rlYt4cw&s" width="150"/>
-
-### 4. **Adobe Audition** 🎧
-Adobe Audition adalah perangkat lunak pengolahan audio yang digunakan dalam proyek ini untuk membersihkan noise dan melakukan preprocessing audio sebelum ekstraksi fitur. Ini membantu memastikan data audio berkualitas tinggi.
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Adobe_Audition_CC_icon_%282020%29.svg/800px-Adobe_Audition_CC_icon_%282020%29.svg.png" width="150"/>
-
-### 5. **Streamlit** 🌐
-Digunakan untuk membuat aplikasi web interaktif, yang memungkinkan pengguna untuk mengunggah suara dan mendapatkan prediksi spesies nyamuk secara langsung.
-
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1IS9rNAuZkFawNTS7W3dgsNcuOjNfh9imKQ&s" width="150"/>
-
-### 6. **Matplotlib & Seaborn** 📊
-Digunakan untuk visualisasi data dan evaluasi kinerja model dengan grafik dan plot yang mudah dipahami.
-
-<img src="https://matplotlib.org/stable/_static/logo2.svg" width="150"/>
+---
   
 ## 🧠 Model CNN _(Convolutional Neural Network)_
 Arsitektur CNN dirancang untuk memproses spektrum audio dari suara nyamuk, memungkinkan klasifikasi spesies dengan akurasi tinggi. Model dilatih menggunakan teknik augmentasi data dan regularisasi untuk meningkatkan performa dan mencegah overfitting.
@@ -91,14 +90,19 @@ Kami berharap dapat mencapai:
    python main.py
    ```
    
-## 👥 Kontibutor
-* Ignatius Krisna Issaputra - [Github](https://github.com/inExcelsis1710)
-* Ardoni Yeriko Rifana Gultom - [Github](https://github.com/gultom20)
-* Rika Ajeng Finatih - [Github](https://github.com/rika623)
-* M. Gilang Martiansyah - [Github](https://github.com/mgilang56)
-* Sasa Rahma Lia - [Github](https://github.com/sasarahmalia)
-* Nazwa Nabilla - [Github](https://github.com/nazwanabila)
+---
 
+## 👥 **Kontributor**
+| Nama                           | Github                                                 |
+|--------------------------------|--------------------------------------------------------|
+| Ignatius Krisna Issaputra      | [Github](https://github.com/inExcelsis1710)            |
+| Ardoni Yeriko Rifana Gultom    | [Github](https://github.com/gultom20)                  |
+| Rika Ajeng Finatih             | [Github](https://github.com/rika623)                   |
+| M. Gilang Martiansyah          | [Github](https://github.com/mgilang56)                 |
+| Sasa Rahma Lia                 | [Github](https://github.com/sasarahmalia)              |
+| Nazwa Nabilla                  | [Github](https://github.com/nazwanabila)               |
+
+---
 ## 📫 Kontak
 Jika ada pertanyaan, silakan hubungi:
 
@@ -133,15 +137,15 @@ Kami sangat mengapresiasi setiap kontribusi yang diberikan oleh setiap anggota t
 
 ---
 
-## 📑 Referensi
-Daftar referensi yang digunakan dalam pengerjaan proyek ini:
-## 🔗 Tautan Kelompok 1
-Kunjungi Notion Kami: [Notion](https://aquamarine-dove-b45.notion.site/Team-1-Proyek-Tugas-Besar-Deep-Learning-133607a60e95805294dada205aea761d)
-## 🎥 Demo Video
-Tonton video berikut untuk melihat cara aplikasi ini bekerja: [in progress(https://www.youtube.com/watch?v=XXXXXXX)
-## Demo Streamlit Aplikasi silahkan coba di link ini [https://tugasbesardeeplearningkel1-5d8dv3unbmqdv6v92tzyl9.streamlit.app/]
-1. [Train Model CNN Nya](https://drive.google.com/file/d/1rbfhPOQLBKxyRvrSUS5jpHjjVBGgCKqx/view?usp=drive_link)
-2. [Train History.json](https://drive.google.com/file/d/1tl_NtfvabLha3-hrwYIaQmPu3hrxYgYv/view?usp=drive_link)
-3. [Referensi 3](https://...)
+## 🔗 **Tautan Penting**
+- **Notion Kelompok 1**: [Notion](https://aquamarine-dove-b45.notion.site/Team-1-Proyek-Tugas-Besar-Deep-Learning-133607a60e95805294dada205aea761d)  
+- **Demo Aplikasi Streamlit**: [Coba Aplikasi](https://mosquitoclassify1.streamlit.app/)  
+- **Train Model CNN**: [Download Model](https://drive.google.com/file/d/1rbfhPOQLBKxyRvrSUS5jpHjjVBGgCKqx/view?usp=drive_link)  
+- **Train History JSON**: [Download History](https://drive.google.com/file/d/1tl_NtfvabLha3-hrwYIaQmPu3hrxYgYv/view?usp=drive_link)  
 
-# **#DeepLearning #CNN #Classification #Malaria #Dengue #DiseasesControl**
+---
+
+## 🎥 **Demo Video**
+**In Progress**: [Tonton Video](https://www.youtube.com/watch?v=XXXXXXX)
+
+---
