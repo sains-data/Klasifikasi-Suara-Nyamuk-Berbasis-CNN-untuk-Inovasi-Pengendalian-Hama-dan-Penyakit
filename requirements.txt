@@ -6,3 +6,7 @@ seaborn==0.13.2
 matplotlib==3.8.3
 json5==0.9.22
 streamlit==1.39.0
+streamlit-lottie
+gdown
+pytz
+requests
