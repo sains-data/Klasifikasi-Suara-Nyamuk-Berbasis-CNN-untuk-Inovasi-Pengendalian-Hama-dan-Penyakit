@@ -4,189 +4,199 @@ import numpy as np
 import librosa
 from tensorflow.image import resize
 import io
+import os
+import gdown
+import json
+import matplotlib.pyplot as plt
 
-# Fungsi untuk memuat model
+# Google Drive URLs
+MODEL_URL = "https://drive.google.com/uc?id=1rbfhPOQLBKxyRvrSUS5jpHjjVBGgCKqx"
+HISTORY_URL = "https://drive.google.com/uc?id=1tl_NtfvabLha3-hrwYIaQmPu3hrxYgYv"
+
+# File Names
+MODEL_FILE = "trained_model.keras"
+HISTORY_FILE = "training_history.json"
+
+# Utility Functions
+def download_file(url, output):
+    """Download file from Google Drive if not already downloaded."""
+    if not os.path.exists(output):
+        with st.spinner(f"Downloading {output}..."):
+            gdown.download(url, output, quiet=False)
+
+
 def load_model():
-    model = tf.keras.models.load_model("Trained_model.h5")
-    return model
+    """Load the trained model."""
+    download_file(MODEL_URL, MODEL_FILE)
+    return tf.keras.models.load_model(MODEL_FILE)
 
-# Fungsi untuk memproses file audio
-def load_and_preprocess_file(file, target_shape=(180, 180)):
-    data = []
-    audio_data, sample_rate = librosa.load(file, sr=None)
 
-    chunk_duration = 2
-    overlap_duration = 1
+def load_training_history(file_path=HISTORY_FILE):
+    """Load the training history from a JSON file."""
+    try:
+        with open(file_path, "r") as file:
+            return json.load(file)
+    except Exception as e:
+        st.error(f"Error loading training history: {e}")
+        return None
 
-    chunk_samples = chunk_duration * sample_rate
-    overlap_samples = overlap_duration * sample_rate
 
-    num_chunks = int(np.ceil((len(audio_data) - chunk_samples) / (chunk_samples - overlap_samples))) + 1
+def load_and_preprocess_file(audio_file):
+    """Load and preprocess the audio file."""
+    try:
+        y, sr = librosa.load(audio_file, sr=None)
 
-    for i in range(num_chunks):
-        start = i * (chunk_samples - overlap_samples)
-        end = start + chunk_samples
-        chunk = audio_data[start:end]
+        # Extract Mel-spectrogram
+        mel_spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
+        mel_spectrogram = librosa.power_to_db(mel_spectrogram, ref=np.max)
 
-        mel_spectrogram = librosa.feature.melspectrogram(y=chunk, sr=sample_rate)
-        mel_spectrogram = resize(np.expand_dims(mel_spectrogram, axis=-1), target_shape)
+        # Extract MFCC
+        mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
 
-        mfcc = librosa.feature.mfcc(y=chunk, sr=sample_rate, n_mfcc=13)
+        # Resize features
+        target_shape = (180, 180)
+        mel_spectrogram_resized = resize(np.expand_dims(mel_spectrogram, axis=-1), target_shape)
         mfcc_resized = resize(np.expand_dims(mfcc, axis=-1), target_shape)
 
-        combined_features = np.concatenate([mel_spectrogram, mfcc_resized], axis=-1)
-        data.append(combined_features)
+        # Combine features
+        X_test = np.concatenate((mel_spectrogram_resized, mfcc_resized), axis=-1)
+        return np.expand_dims(X_test, axis=0)  # Add batch dimension
+    except Exception as e:
+        st.error(f"Error during audio preprocessing: {e}")
+        return None
 
-    return np.array(data)
 
-# Fungsi untuk prediksi model
-def model_prediction(X_test):
-    model = load_model()
-    y_pred = model.predict(X_test)
-    predicted_categories = np.argmax(y_pred, axis=1)
-    unique_elements, counts = np.unique(predicted_categories, return_counts=True)
-    max_count = np.max(counts)
-    max_elements = unique_elements[counts == max_count]
-    return max_elements[0]
+def model_prediction(X_test, model):
+    """Perform prediction using the model."""
+    try:
+        prediction = model.predict(X_test)
+        return np.argmax(prediction, axis=1)[0]  # Return predicted class index
+    except Exception as e:
+        st.error(f"Error during model prediction: {e}")
+        return None
 
-# Menambahkan background gambar dari URL
+
+def show_prediction_result(audio_file, model):
+    """Display the prediction result."""
+    X_test = load_and_preprocess_file(audio_file)
+    if X_test is not None:
+        result_index = model_prediction(X_test, model)
+        if result_index is not None:
+            labels = ["Aedes Aegypti", "Anopheles Stephensi", "Culex Pipiens"]
+            st.markdown(f"**Predicted Species:** {labels[result_index]}")
+        else:
+            st.error("Model failed to provide a prediction.")
+    else:
+        st.error("Failed to process the audio file.")
+
+# UI Styling Functions
 def add_bg_from_url():
+    """Add background from a URL."""
     st.markdown(
-        f"""
+        """
         <style>
-        .stApp {{
-            background-image: url('https://asset.kompas.com/crops/Uoby6be9TIeMzC18327oT1MCjlI=/13x0:500x325/1200x800/data/photo/2020/03/12/5e69cae0eb1d1.jpg');
+        .stApp {
+            background-image: url('https://jenis.net/wp-content/uploads/2020/06/jenis-nyamuk-e1591437296119-768x456.jpg');
             background-size: cover;
             background-position: top center;
-        }}
+            color: white;
+        }
+        h1, h2, h3, h4, h5 {
+            color: white;
+            text-align: center;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            font-size: 14px;
+            color: white;
+            margin: 10px;
+        }
+        .center-content {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-add_bg_from_url()
 
-# HTML untuk bagian konten dan formulir upload
-st.markdown(
-    """
-    <style>
-        body {
-            background-size: cover;
-            color: #FFFFFF;  /* Warna putih untuk teks */
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
+def add_header_logo():
+    """Add header logo and title."""
+    st.markdown(
+        """
+        <div class="center-content">
+            <div>
+                <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo1.png?raw=true" alt="Logo 1" width="65" height="65">
+                <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo2.png?raw=true" alt="Logo 2" width="65" height="65">
+                <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo3.png?raw=true" alt="Logo 3" width="65" height="65">
+            </div>
+            <h1>Klasifikasi Suara Nyamuk Berdasarkan Spesies</h1>
+            <h3>Upload file suara nyamuk untuk memprediksi spesiesnya</h3>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-        h1 {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #FFFFFF;  /* Warna putih */
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Menambahkan bayangan pada teks */
-        }
 
-        h3 {
-            font-size: 1.5em;
-            color: #FFFFFF;  /* Warna putih */
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6); /* Bayangan pada teks */
-        }
+def add_footer():
+    """Add footer."""
+    st.markdown(
+        """
+        <div class="footer">
+            <h4>© Developer: Kelompok 1 Deep Learning</h4>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-        .upload-form {
-            background-color: rgba(255, 255, 255, 0.2); /* Background transparan putih */
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
+# Main Application
+def main():
+    add_bg_from_url()
+    add_header_logo()
 
-        input[type="file"] {
-            margin: 10px 0;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #333; /* Background hitam */
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    # Load Model
+    model = load_model()
 
-        input[type="submit"] {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #3b3d6b;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    # File Uploader
+    audio_file = st.file_uploader("Pilih file audio untuk diprediksi", type=["wav", "mp3"])
+    if audio_file is not None:
+        st.audio(audio_file, format="audio/wav")
+        show_prediction_result(audio_file, model)
 
-        input[type="submit"]:hover {
-            background-color: #5f5f91;
-        }
+    # Show Training History
+    if st.button("Show Training History"):
+        history = load_training_history()
+        if history:
+            st.write("**Training History:**")
+            st.json(history)
 
-        img {
-            margin-top: 20px;
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
+            # Plot accuracy and loss
+            epochs = range(1, len(history['accuracy']) + 1)
 
-        .footer {
-            margin-top: 20px;
-            font-size: 1rem;
-            color: #FFFFFF;  /* Warna putih untuk footer */
-            font-weight: bold;
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+            plt.figure()
+            plt.plot(epochs, history['accuracy'], label="Training Accuracy")
+            plt.plot(epochs, history['val_accuracy'], label="Validation Accuracy")
+            plt.title("Accuracy Over Epochs")
+            plt.xlabel("Epochs")
+            plt.ylabel("Accuracy")
+            plt.legend()
+            st.pyplot(plt)
 
-# Menampilkan header dan logo
-st.markdown("""
-    <div>
-        <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo1.png?raw=true" alt="Logo Nyamuk 1" width="65" height="65">
-        <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo2.png?raw=true" alt="Logo Nyamuk 2" width="65" height="65">
-        <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo3.png?raw=true" alt="Logo Nyamuk 3" width="65" height="65">
-    </div>
-    <h1>Klasifikasi Suara Nyamuk Berdasarkan Spesiesnya Berbasis CNN untuk Inovasi Pengendalian Hama dan Penyakit</h1>
-    <h3>Upload file suara nyamuk untuk memprediksi spesiesnya</h3>
-""", unsafe_allow_html=True)
+            plt.figure()
+            plt.plot(epochs, history['loss'], label="Training Loss")
+            plt.plot(epochs, history['val_loss'], label="Validation Loss")
+            plt.title("Loss Over Epochs")
+            plt.xlabel("Epochs")
+            plt.ylabel("Loss")
+            plt.legend()
+            st.pyplot(plt)
 
-# Formulir upload file audio
-st.title("Upload Audio Suara Nyamuk")
+    add_footer()
 
-test_wav = st.file_uploader("Pilih file audio...", type=["wav"])
-
-if test_wav is not None:
-    # Proses file langsung tanpa menyimpannya
-    audio_bytes = test_wav.read()
-
-    # Pre-process file audio dan prediksi
-    if st.button("Predict"):
-        with st.spinner("Predicting..."):
-            # Menggunakan BytesIO untuk membaca file dari memori
-            X_test = load_and_preprocess_file(io.BytesIO(audio_bytes))
-            result_index = model_prediction(X_test)
-            label = ["Aedes Aegypti", "Anopheles Stephensi", "Culex Pipiens"]
-            st.markdown(f"Predicted Species: {label[result_index]}")
-
-# Footer
-st.markdown("""
-    <div class="footer">
-        <h4>© Developer: Kelompok 1 Deep Learning</h4>
-    </div>
-""", unsafe_allow_html=True)
+if __name__ == "__main__":
+    main()
