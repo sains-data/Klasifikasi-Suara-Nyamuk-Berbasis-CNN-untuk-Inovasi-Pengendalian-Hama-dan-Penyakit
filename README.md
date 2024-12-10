@@ -140,8 +140,8 @@ Kunjungi Notion Kami: [Notion](https://aquamarine-dove-b45.notion.site/Team-1-Pr
 ## 🎥 Demo Video
 Tonton video berikut untuk melihat cara aplikasi ini bekerja: [in progress(https://www.youtube.com/watch?v=XXXXXXX)
 ## Demo Streamlit Aplikasi silahkan coba di link ini [https://tugasbesardeeplearningkel1-5d8dv3unbmqdv6v92tzyl9.streamlit.app/]
-1. [Referensi 1](https://...)
-2. [Referensi 2](https://...)
+1. [Train Model CNN Nya](https://drive.google.com/file/d/1rbfhPOQLBKxyRvrSUS5jpHjjVBGgCKqx/view?usp=drive_link)
+2. [Train History.json](https://drive.google.com/file/d/1tl_NtfvabLha3-hrwYIaQmPu3hrxYgYv/view?usp=drive_link)
 3. [Referensi 3](https://...)
 
 # **#DeepLearning #CNN #Classification #Malaria #Dengue #DiseasesControl**
