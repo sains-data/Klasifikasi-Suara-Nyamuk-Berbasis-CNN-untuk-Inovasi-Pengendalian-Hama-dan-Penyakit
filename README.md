@@ -12,7 +12,7 @@ Proyek ini diharapkan mendukung **upaya pemerintah** dalam mencapai target:
 - **Eliminasi malaria dan filariasis pada tahun 2030**
 - **Pengurangan insiden demam berdarah dengue (DBD)** hingga di bawah **49 kasus per 100.000 jiwa**.
 
-![🦟 Gambar Nyamuk](https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo0.jpg)
+![🦟 Gambar Nyamuk]([https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo0.jpg)](https://raw.githubusercontent.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/refs/heads/main/Deploy/Logo%20MosquID.png)
 
 ---
 
