@@ -189,7 +189,7 @@ def add_github_rating_section():
     <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
         <h3 style="font-size: 20px; color: white;">Dukung Proyek Kami dengan Memberikan Star di GitHub</h3>
         <p style="font-size: 16px; color: white;">Jika Anda menyukai aplikasi ini, silakan beri kami star di repo GitHub kami:</p>
-        <a href="https://github.com/mgilang56/TugasBesarDeeplearningKel1" target="_blank" style="text-decoration: none;">
+        <a href="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit" target="_blank" style="text-decoration: none;">
             <button style="
                 background-color: #007bff;
                 color: white;
