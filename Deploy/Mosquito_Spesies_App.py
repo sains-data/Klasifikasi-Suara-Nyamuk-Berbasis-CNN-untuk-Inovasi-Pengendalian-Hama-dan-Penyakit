@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 import librosa
+import librosa.display
 from tensorflow.image import resize
 import io
 import os
@@ -12,6 +13,7 @@ from streamlit_lottie import st_lottie
 import requests
 from datetime import datetime
 import pytz
+import soundfile as sf
 
 # Google Drive URLs
 MODEL_URL = "https://drive.google.com/uc?id=1rbfhPOQLBKxyRvrSUS5jpHjjVBGgCKqx"
@@ -45,7 +47,12 @@ def load_training_history(file_path=HISTORY_FILE):
 def load_and_preprocess_file(audio_file):
     """Load and preprocess the audio file."""
     try:
-        y, sr = librosa.load(audio_file, sr=None)
+        # Membaca file audio yang di-upload sebagai byte stream
+        audio_bytes = audio_file.read()
+        audio_buffer = io.BytesIO(audio_bytes)
+
+        # Load audio using librosa from byte stream
+        y, sr = librosa.load(audio_buffer, sr=None)
 
         # Extract Mel-spectrogram
         mel_spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
@@ -63,7 +70,7 @@ def load_and_preprocess_file(audio_file):
         X_test = np.concatenate((mel_spectrogram_resized, mfcc_resized), axis=-1)
         return np.expand_dims(X_test, axis=0)  # Add batch dimension
     except Exception as e:
-        st.error(f"Error during audio preprocessing: {e}")
+        print(f"Error during audio preprocessing: {e}")
         return None
 
 def model_prediction(X_test, model):
@@ -76,13 +83,36 @@ def model_prediction(X_test, model):
         return None
 
 def show_prediction_result(audio_file, model):
-    """Display the prediction result."""
+    """Display the prediction result along with the spectrogram and species image."""
     X_test = load_and_preprocess_file(audio_file)
     if X_test is not None:
         result_index = model_prediction(X_test, model)
         if result_index is not None:
             labels = ["Aedes Aegypti", "Anopheles Stephensi", "Culex Pipiens"]
-            st.markdown(f"**Predicted Species:** {labels[result_index]}")
+            species_images = {
+                "Aedes Aegypti": "https://github.com/mgilang56/TugasBesarDeeplearningKel1/blob/main/Deploy/Aedes%20Aegypti.png?raw=true",
+                "Anopheles Stephensi": "https://github.com/mgilang56/TugasBesarDeeplearningKel1/blob/main/Deploy/Anopeles.png?raw=true",
+                "Culex Pipiens": "https://github.com/mgilang56/TugasBesarDeeplearningKel1/blob/main/Deploy/Culex%20Pipiens.png?raw=true"
+            }
+
+            predicted_species = labels[result_index]
+            st.markdown(f"**Predicted Species:** {predicted_species}")
+
+            # Plotting Mel-Spectrogram
+            audio_file.seek(0)  # Reset file pointer to the start
+            y, sr = librosa.load(audio_file, sr=None)
+            mel_spectrogram = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
+            mel_spectrogram_db = librosa.power_to_db(mel_spectrogram, ref=np.max)
+
+            plt.figure(figsize=(10, 6))  # Mel-Spectrogram plot size
+            librosa.display.specshow(mel_spectrogram_db, x_axis='time', y_axis='mel', sr=sr)
+            plt.colorbar(format='%+2.0f dB')
+            plt.title('Mel-Spectrogram')
+            st.pyplot(plt)
+
+            # Display the species image with the same size as the Mel-Spectrogram
+            st.image(species_images[predicted_species], use_column_width=True)
+
         else:
             st.error("Model failed to provide a prediction.")
     else:
@@ -90,166 +120,87 @@ def show_prediction_result(audio_file, model):
 
 # UI Styling Functions
 def add_bg_from_url():
-    """Add background from a URL."""
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-image: url('https://jenis.net/wp-content/uploads/2020/06/jenis-nyamuk-e1591437296119-768x456.jpg');
-            background-size: cover;
-            background-position: top center;
-            color: white;
-        }
-        h1, h2, h3, h4, h5 {
-            color: white;
-            text-align: center;
-        }
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        .center-content {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-        }
-        .social-icons {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            display: flex;
-            gap: 15px;
-        }
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-        }
-        .custom-button {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    st.markdown("""
+    <style>
+    .stApp {
+        background-image: url("https://github.com/mgilang56/TugasBesarDeeplearningKel1/blob/main/Deploy/backgroundcoba2.jpg?raw=true");
+        background-size: cover;
+        background-position: top center;
+        color: white;
+    }
+    .social-icons {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+        gap: 10px;
+    }
+    .social-icons img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 def add_header_logo():
-    """Add header logo and title."""
-    st.markdown(
-        """
-        <div class="center-content">
-            <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
-                <div style="border: 2px solid white; border-radius: 10px; padding: 5px;">
-                    <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo1.png?raw=true" alt="Logo 1" width="100" height="100">
-                </div>
-                <div style="border: 2px solid white; border-radius: 10px; padding: 5px;">
-                    <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo2.png?raw=true" alt="Logo 2" width="100" height="100">
-                </div>
-                <div style="border: 2px solid white; border-radius: 10px; padding: 5px;">
-                    <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo3.png?raw=true" alt="Logo 3" width="100" height="100">
-                </div>
-            </div>
-            <h1>Klasifikasi Suara Nyamuk Berdasarkan Spesies Berbasis CNN untuk Inovasi Pengendalian Hama dan Penyakit</h1>
-            <h3>Upload file suara nyamuk untuk memprediksi spesiesnya</h3>
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px;">
+            <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo1.png?raw=true" width="80" height="80">
+            <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo2.png?raw=true" width="80" height="80">
+            <img src="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit/blob/main/Deploy/Logo3.png?raw=true" width="80" height="80">
+            <img src="https://github.com/mgilang56/TugasBesarDeeplearningKel1/blob/main/Deploy/Logo%20MosquID.png?raw=true" width="80" height="80">
         </div>
-        <div class="social-icons">
-            <a href="https://github.com/mgilang56/TugasBesarDeeplearningKel1" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
-            </a>
-            <a href="https://wa.me/6285157725574" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-            </a>
-            <a href="https://instagram.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+        <h1 style="font-size: 30px; color: white;">Klasifikasi Suara Nyamuk Berdasarkan Spesies Berbasis CNN</h1>
+        <h2 style="font-size: 22px; color: white; margin-top: -10px;">untuk Inovasi Pengendalian Hama dan Penyakit</h2>
+    </div>
+    """, unsafe_allow_html=True)
 
 def add_user_guide():
-    """Add user guide section."""
     st.markdown("""
-    <div style="margin-top: 30px; padding: 20px; background-color: rgba(0, 0, 0, 0.6); border-radius: 10px; color: white;">
-        <h2>Panduan Penggunaan</h2>
-        <ol>
-            <li>Upload file audio nyamuk dalam format <strong>.wav</strong> atau <strong>.mp3</strong>.</li>
-            <li>Tekan tombol "Prediksi" untuk mengetahui spesies nyamuk.</li>
-            <li>Tekan tombol "Show Training History" untuk melihat riwayat pelatihan model.</li>
-        </ol>
+    <div style="text-align: center; margin-top: 30px;">
+        <h3 style="font-size: 20px; color: white;">Panduan Penggunaan:</h3>
+        <ul style="display: inline-block; text-align: left; font-size: 18px; color: white;">
+            <li>Unggah file audio dari nyamuk yang ingin diklasifikasikan.</li>
+            <li>Klik tombol untuk memprediksi spesies nyamuk berdasarkan suara.</li>
+            <li>Hasil prediksi akan ditampilkan beserta visualisasi Mel-spectrogram.</li>
+        </ul>
     </div>
     """, unsafe_allow_html=True)
 
-def add_dynamic_footer():
-    """Add footer with real-time clock in WIB."""
-    wib = pytz.timezone('Asia/Jakarta')  # Zona waktu WIB
-    current_time = datetime.now(wib).strftime('%H:%M:%S')
-    st.markdown(f"""
-    <div class="footer">
-        <span>© Developer: Kelompok 1 Deep Learning | Jam: {current_time} WIB</span>
+def add_social_icons():
+    st.markdown("""
+    <div class="social-icons">
+        <a href="https://github.com/mgilang56/TugasBesarDeeplearningKel1" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+        </a>
+        <a href="https://wa.me/6285157725574" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
     </div>
     """, unsafe_allow_html=True)
 
-def add_animation():
-    """Add mosquito animation."""
-    animation_url = "https://assets9.lottiefiles.com/packages/lf20_9pnbs7tv.json"  # Animasi nyamuk
-    r = requests.get(animation_url)
-    if r.status_code == 200:
-        lottie_animation = r.json()
-        st_lottie(lottie_animation, height=300, key="mosquito-animation")
-
+# Main Streamlit App
 def main():
+    """Main function for the Streamlit app."""
     add_bg_from_url()
     add_header_logo()
-    add_animation()  # Animasi nyamuk
     add_user_guide()
-
-    # Load Model
-    model = load_model()
-
-    # File Uploader
-    audio_file = st.file_uploader("Pilih file audio untuk diprediksi", type=["wav", "mp3"], help="Drag & Drop atau klik untuk upload file.")
+    add_social_icons()
+    
+    st.markdown("### Upload File Audio Nyamuk:")
+    
+    # Upload file audio
+    audio_file = st.file_uploader("Pilih file audio (.wav, .mp3)", type=["wav", "mp3"])
+    
     if audio_file is not None:
-        st.audio(audio_file, format="audio/wav")
-        show_prediction_result(audio_file, model)
+        model = load_model()  # Load the model
+        show_prediction_result(audio_file, model)  # Show the prediction result
 
-    # Show Training History
-    if st.button("Show Training History", help="Lihat riwayat pelatihan model."):
-        history = load_training_history()
-        if history:
-            epochs = range(1, len(history['accuracy']) + 1)
-
-            plt.figure()
-            plt.plot(epochs, history['accuracy'], label="Training Accuracy")
-            plt.plot(epochs, history['val_accuracy'], label="Validation Accuracy")
-            plt.title("Accuracy Over Epochs")
-            plt.xlabel("Epochs")
-            plt.ylabel("Accuracy")
-            plt.legend()
-            st.pyplot(plt)
-
-            plt.figure()
-            plt.plot(epochs, history['loss'], label="Training Loss")
-            plt.plot(epochs, history['val_loss'], label="Validation Loss")
-            plt.title("Loss Over Epochs")
-            plt.xlabel("Epochs")
-            plt.ylabel("Loss")
-            plt.legend()
-            st.pyplot(plt)
-
-    add_dynamic_footer()
-
+# Run the app
 if __name__ == "__main__":
     main()
