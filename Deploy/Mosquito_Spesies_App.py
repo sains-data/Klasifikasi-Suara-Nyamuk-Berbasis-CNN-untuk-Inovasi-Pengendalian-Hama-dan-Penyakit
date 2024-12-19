@@ -183,6 +183,26 @@ def add_social_icons():
         </a>
     </div>
     """, unsafe_allow_html=True)
+    
+def add_github_rating_section():
+    st.markdown("""
+    <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+        <h3 style="font-size: 20px; color: white;">Dukung Proyek Kami dengan Memberikan Star di GitHub</h3>
+        <p style="font-size: 16px; color: white;">Jika Anda menyukai aplikasi ini, silakan beri kami star di repo GitHub kami:</p>
+        <a href="https://github.com/mgilang56/TugasBesarDeeplearningKel1" target="_blank" style="text-decoration: none;">
+            <button style="
+                background-color: #28a745;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;">
+                Berikan Star di GitHub
+            </button>
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Main Streamlit App
 def main():
@@ -191,6 +211,7 @@ def main():
     add_header_logo()
     add_user_guide()
     add_social_icons()
+    add_github_rating_section()
     
     st.markdown("### Upload File Audio Nyamuk:")
     
