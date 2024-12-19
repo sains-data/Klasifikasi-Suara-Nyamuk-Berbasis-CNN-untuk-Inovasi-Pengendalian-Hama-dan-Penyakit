@@ -172,7 +172,7 @@ def add_user_guide():
 def add_social_icons():
     st.markdown("""
     <div class="social-icons">
-        <a href="https://github.com/mgilang56/TugasBesarDeeplearningKel1" target="_blank">
+        <a href="https://github.com/sains-data/Klasifikasi-Suara-Nyamuk-Berbasis-CNN-untuk-Inovasi-Pengendalian-Hama-dan-Penyakit" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
         </a>
         <a href="https://wa.me/6285157725574" target="_blank">
