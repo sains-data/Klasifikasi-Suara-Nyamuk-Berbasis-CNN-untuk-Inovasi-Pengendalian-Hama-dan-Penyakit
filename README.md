@@ -145,7 +145,8 @@ Kami sangat mengapresiasi setiap kontribusi yang diberikan oleh setiap anggota t
 ---
 
 ## 🔗 **Tautan Penting**
-- **Notion Kelompok 1**: [Notion](https://aquamarine-dove-b45.notion.site/Team-1-Proyek-Tugas-Besar-Deep-Learning-133607a60e95805294dada205aea761d)  
+- **Notion Kelompok 1**: [Notion](https://aquamarine-dove-b45.notion.site/Team-1-Proyek-Tugas-Besar-Deep-Learning-133607a60e95805294dada205aea761d)
+- **PDF Laporan Jurnal Saintek** :[JURNAL SAINTEK](https://drive.google.com/drive/folders/1B_QYO9ProikQDmT4X0LG-cnuEzqVo3gO)
 - **Demo Aplikasi Streamlit**: [Coba Aplikasi](https://mosquitoclassify1.streamlit.app/) _(disarankan memakai mode gelap untuk pengalaman terbaik)_  
 - **Train Model CNN**: [Download Model](https://drive.google.com/file/d/1rbfhPOQLBKxyRvrSUS5jpHjjVBGgCKqx/view?usp=drive_link)  
 - **Train History JSON**: [Download History](https://drive.google.com/file/d/1tl_NtfvabLha3-hrwYIaQmPu3hrxYgYv/view?usp=drive_link)  
@@ -155,5 +156,6 @@ Kami sangat mengapresiasi setiap kontribusi yang diberikan oleh setiap anggota t
 
 ## 🎥 **Video Dokumentasi**
 **Iklan Produk**: [Tonton Video](https://drive.google.com/file/d/1o89d0438NAPzlXVg36KmjCbgButCD0k-/view?usp=drive_link)
+**Video PPT**: [Tonton Video](https://drive.google.com/drive/folders/1sAfyftpAHU2x8L_46sVSfS9jzCU71CIW)
 
 ---
