@@ -191,7 +191,7 @@ def add_github_rating_section():
         <p style="font-size: 16px; color: white;">Jika Anda menyukai aplikasi ini, silakan beri kami star di repo GitHub kami:</p>
         <a href="https://github.com/mgilang56/TugasBesarDeeplearningKel1" target="_blank" style="text-decoration: none;">
             <button style="
-                background-color: #28a745;
+                background-color: #007bff;
                 color: white;
                 border: none;
                 padding: 10px 20px;
@@ -203,6 +203,7 @@ def add_github_rating_section():
         </a>
     </div>
     """, unsafe_allow_html=True)
+
 
 # Main Streamlit App
 def main():
