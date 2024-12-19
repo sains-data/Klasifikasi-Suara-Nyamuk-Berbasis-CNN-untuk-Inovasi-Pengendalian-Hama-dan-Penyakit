@@ -151,7 +151,7 @@ Kami sangat mengapresiasi setiap kontribusi yang diberikan oleh setiap anggota t
 ---
 ---
 
-## 🎥 **Demo Video**
-**In Progress**: [Tonton Video](https://www.youtube.com/watch?v=XXXXXXX)
+## 🎥 **Video Dokumentasi**
+**Iklan Produk**: [Tonton Video](https://drive.google.com/file/d/1o89d0438NAPzlXVg36KmjCbgButCD0k-/view?usp=drive_link)
 
 ---
